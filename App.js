@@ -7,56 +7,13 @@ import {
   Pressable,
 } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+import About from './src/screens/About';
+import Home from './src/screens/Home';
 import { createStackNavigator } from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
 
-function ScreenA({ navigation }) {
 
-  const onPressHandler = () => {
-    navigation.navigate('Screen_B');
-  }
-
-  return (
-    <View style={styles.body}>
-      <Text style={styles.text}>
-        Screen A
-      </Text>
-      <Pressable
-        onPress={onPressHandler}
-        style={({ pressed }) => ({ backgroundColor: pressed ? '#ddd' : '#0ff' })}
-      >
-        <Text style={styles.text}>
-          Go to Screen B
-        </Text>
-      </Pressable>
-    </View>
-  )
-}
-
-function ScreenB({ navigation }) {
-
-  const onPressHandler = () => {
-    // navigation.navigate('Screen_A');
-    navigation.goBack();
-  }
-
-  return (
-    <View style={styles.body}>
-      <Text style={styles.text}>
-        Screen B
-      </Text>
-      <Pressable
-        onPress={onPressHandler}
-        style={({ pressed }) => ({ backgroundColor: pressed ? '#ddd' : '#0ff' })}
-      >
-        <Text style={styles.text}>
-          Go Back to Screen A
-        </Text>
-      </Pressable>
-    </View>
-  )
-}
 
 function App() {
   return (
@@ -68,14 +25,14 @@ function App() {
       >
         <Stack.Screen
           name="Screen_A"
-          component={ScreenA}
+          component={Home}
         // options={{
         //   header: () => null
         // }}
         />
         <Stack.Screen
           name="Screen_B"
-          component={ScreenB}
+          component={About}
         />
       </Stack.Navigator>
     </NavigationContainer>

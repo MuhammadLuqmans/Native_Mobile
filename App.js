@@ -10,6 +10,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import About from './src/screens/About';
 import Home from './src/screens/Home';
 import { createStackNavigator } from '@react-navigation/stack';
+import Login from './src/screens/Login';
+import CreateAccount from './src/screens/CreateAccount';
 
 const Stack = createStackNavigator();
 
@@ -24,16 +26,27 @@ function App() {
         // }}
       >
         <Stack.Screen
-          name="Screen_A"
+          name="Home"
           component={Home}
-        // options={{
-        //   header: () => null
-        // }}
+        options={{
+          header: () => null
+        }}
         />
         <Stack.Screen
-          name="Screen_B"
+          name="Login"
+          component={Login}
+        />
+
+        <Stack.Screen
+          name="Create Account"
+          component={CreateAccount}
+        />
+        
+        <Stack.Screen
+          name="about"
           component={About}
         />
+        
       </Stack.Navigator>
     </NavigationContainer>
   )
